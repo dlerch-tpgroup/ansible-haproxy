@@ -77,6 +77,11 @@ backend {{ name }}
             {% for srv in value.servers %}
     server          {{ srv }}
             {% endfor %}
+            {% if value.errorfiles is defined %}
+                {% for errorfile in value.errorfiles %}
+    errorfile       {{ errorfile }}
+                {% endfor %}
+            {% endif %}
         {% endfor %}
 
     {% endfor %}
